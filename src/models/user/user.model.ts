@@ -1,19 +1,24 @@
-import { Table, Column, Model, PrimaryKey, DataType } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  PrimaryKey,
+  DataType,
+} from 'sequelize-typescript';
 import { UserEntity } from './user.entity';
-
 
 @Table({ tableName: 'USER', timestamps: false })
 export class UserModel extends Model<UserEntity> {
   @PrimaryKey
   @Column({
-  	type: DataType.INTEGER,
-  	autoIncrement: true
+    type: DataType.INTEGER,
+    autoIncrement: true,
   })
-  	id!: number;
+    id!: number;
 
   @Column
-  	name!: string;
+    name!: string;
 
   @Column
-  	email!: string;
+    email!: string;
 }

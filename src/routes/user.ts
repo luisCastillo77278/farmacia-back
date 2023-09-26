@@ -9,13 +9,13 @@ const router = Router();
 config();
 
 interface Database {
-  [key: string]: SequelizeRepository | FileUserRepository
+  [key: string]: SequelizeRepository | FileUserRepository | MongoRepository;
 }
 
 const DATABASE: Database = {
-	'FileMemory': new FileUserRepository(),
-	'MySQL': new SequelizeRepository(),
-	'Mongo': new MongoRepository()
+  FileMemory: new FileUserRepository(),
+  MySQL: new SequelizeRepository(),
+  Mongo: new MongoRepository(),
 };
 
 const repository = DATABASE[`${process.env.TYPE_DB}`] || DATABASE['FileMemory'];
